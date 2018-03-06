@@ -79,7 +79,9 @@ $("#addBand").on("click", function(event) {
 
 });
 
-$('.gif').on('click', function () {
+/*$('.gif').on('click', function () {
+
+	event.preventDefault();
 
 	state = $(this).attr('data-state')
     console.log(state)
@@ -93,9 +95,27 @@ $('.gif').on('click', function () {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
-});
+});*/
 
 $(document).on("click", ".band-name", displayBandInfo);
+
+$(document).on("click", ".gif", function () {
+
+	var state = $(this).attr('data-state')
+    console.log(state)
+
+    if (state === "still") {
+    	$(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } 
+
+    else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
+
+
 
 
 
